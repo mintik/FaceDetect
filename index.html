@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+		<script src="js/facedetection/ccv.js"></script> 
+		<script src="js/facedetection/face.js"></script>
+		<script src="js/jquery.facedetection.js"></script> 
+		<script>
+			$(document).ready(function() {
+				$("img").click(function(){
+					var coords = $(this).faceDetection();
+					for(i=0;i<coords.length;i++){
+						$("<div>",{
+							"class":"facebox",
+							"css":{
+								"left":coords[i].positionX+"px",
+								"top":coords[i].positionY+"px",
+								"width":coords[i].width+"px",
+								"height":coords[i].height+"px"
+							}
+						}).appendTo("#content");
+					}
+                         alert("done");
+				});
+			});
+		</script>
+		<style>
+			.facebox{
+				border:4px solid #ff0000;
+				position:absolute;
+			}
+			img{
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "content">
+			<img src="img/01.jpg" />
+               <img src="img/02.jpg" />
+               <img src="img/03.jpg" />
+               <img src="img/04.jpg" />
+               <img src="img/05.jpg" />
+               <img src="img/06.jpg" />
+               <img src="img/07.jpg" />
+               <img src="img/08.jpg" />
+               <img src="img/09.jpg" />
+               <img src="img/10.jpg" />
+               <img src="img/11.jpg" />
+               <img src="img/12.jpg" />
+		</div>
+	</body>
+</html>
